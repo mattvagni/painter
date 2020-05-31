@@ -1,6 +1,6 @@
 export type BlockColor = string | null;
 
-export type Tool = "brush" | "eraser" | "fill";
+export type Tool = "brush" | "eraser" | "fill" | "color-picker";
 
 export type ToolStatus = "active" | "inactive";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Tool, BlockColor } from "../types";
+import { Tool } from "../types";
 import { SketchPicker } from "react-color";
 
 interface Props {
@@ -40,6 +40,18 @@ export function Tools(props: Props) {
         }}
       >
         fill
+      </button>
+      <button
+        disabled={props.tool === "color-picker"}
+        onClick={() => {
+          // Filling can only really logically work if are not mirroring
+          // and have a single tool selected.
+          props.onToolChange("color-picker");
+          props.onSizeChange(1);
+          props.onToolMirroringChange(false);
+        }}
+      >
+        color picker
       </button>
 
       <br />

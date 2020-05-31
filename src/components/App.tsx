@@ -131,7 +131,20 @@ export function App() {
         color,
       });
     }
-  }, [color, matrix, tool, toolMirroring, toolPosition, toolSize, toolStatus]);
+
+    if (tool === "color-picker") {
+      setColor(matrix[toolPosition.y][toolPosition.x] || canvasColor);
+    }
+  }, [
+    canvasColor,
+    color,
+    matrix,
+    tool,
+    toolMirroring,
+    toolPosition,
+    toolSize,
+    toolStatus,
+  ]);
 
   const onMouseMove = useCallback(
     (event: MouseEvent) => {
