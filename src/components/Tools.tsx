@@ -1,6 +1,6 @@
 import React from "react";
 import { Tool } from "../types";
-import { SketchPicker } from "react-color";
+import { ChromePicker } from "react-color";
 
 interface Props {
   tool: Tool;
@@ -14,6 +14,9 @@ interface Props {
 }
 
 export function Tools(props: Props) {
+  const canSizeBeChanged =
+    props.tool !== "fill" && props.tool !== "color-picker";
+
   return (
     <div style={{ marginTop: 14 }}>
       {/* Tools */}
@@ -75,25 +78,25 @@ export function Tools(props: Props) {
 
       {/* Sizes */}
       <button
-        disabled={props.toolSize === 1}
+        disabled={canSizeBeChanged === false || props.toolSize === 1}
         onClick={() => props.onSizeChange(1)}
       >
         1
       </button>
       <button
-        disabled={props.toolSize === 2}
+        disabled={canSizeBeChanged === false || props.toolSize === 2}
         onClick={() => props.onSizeChange(2)}
       >
         2
       </button>
       <button
-        disabled={props.toolSize === 3}
+        disabled={canSizeBeChanged === false || props.toolSize === 3}
         onClick={() => props.onSizeChange(3)}
       >
         3
       </button>
       <button
-        disabled={props.toolSize === 4}
+        disabled={canSizeBeChanged === false || props.toolSize === 4}
         onClick={() => props.onSizeChange(4)}
       >
         4
@@ -102,7 +105,7 @@ export function Tools(props: Props) {
       <br />
       <br />
 
-      <SketchPicker
+      <ChromePicker
         color={props.color}
         onChange={(color) => {
           props.onColorChange(color.hex);
