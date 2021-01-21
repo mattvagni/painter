@@ -13,7 +13,7 @@
     "@types/react-color": "^3.0.2",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.0",
-    "immer": "^6.0.9",
+    "immer": "^8.0.1",
     "konva": "^6.0.0",
     "react": "^16.13.1",
     "react-color": "^2.18.1",
